@@ -9,15 +9,14 @@ int main() {
 	int opcion;
 	
 	do {
-		// Mostrar el menú de opciones
 		cout << "1. Agregar contacto" << endl;
 		cout << "2. Eliminar contacto" << endl;
 		cout << "3. Buscar contacto" << endl;
 		cout << "4. Imprimir lista de contactos" << endl;
 		cout << "5. Salir" << endl;
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opciÃ³n: ";
 		cin >> opcion;
-		cin.ignore(); // Limpiar el buffer de entrada para evitar problemas con getline
+		cin.ignore(); 
 		
 		switch(opcion) {
 		case 1: {
@@ -52,8 +51,7 @@ int main() {
 			break;
 		}
 		case 4: {
-			// Imprimir la lista de contactos de izquierda a derecha
-			lista.recorreDerecha();
+			// Imprimir la lista 
 			break;
 		}
 		case 5: {
@@ -61,9 +59,9 @@ int main() {
 			break;
 		}
 		default:
-			cout << "Opción no válida. Intente de nuevo." << endl;
+			cout << "OpciÃ³n no vÃ¡lida. Intente de nuevo." << endl;
 		}
-		cout << endl; // Línea en blanco para mejorar la legibilidad del menú
+		cout << endl; 
 	} while (opcion != 5);
 	
 	return 0;
