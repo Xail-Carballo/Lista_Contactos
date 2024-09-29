@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "Contactos.cpp"
-#include "ListaDobleCircularContactos.cpp"
+#include "Contacto.cpp"
+#include "listaDobleCircularContactos.cpp"
 using namespace std;
 
 int main() {
