@@ -26,6 +26,21 @@ public:
         return sizeList;
     }
 
+    void agregarContacto(){
+        string nombre, telefono, email;
+        cout << "Ingrese el nombre: ";
+        getline(cin, nombre);
+        cout << "Ingrese el telefono: ";
+        getline(cin, telefono);
+        cout << "Ingrese el email: ";
+        getline(cin, email);
+
+        Contacto* nuevoContacto = new Contacto(nombre, telefono, email);
+        insertaOrdenado(nuevoContacto);
+        cout << "Contacto agregado correctamente" << endl;
+        //sizeList++;
+    }
+
     // insertar por orden alfabetico
     void insertaOrdenado(Contacto* dato) {
         NodoLDC* nuevo = new NodoLDC(dato);
@@ -79,32 +94,32 @@ void eliminarPorNombre(const string &nombre) {
     }
 
     NodoLDC *actual = inicio;
-    
+
     // Recorrer la lista
     do {
         //si el actual coincide con el nombre buscado
         if (actual->dato->getNombre() == nombre) {
-            
+
             // Si es el unico nodo en la lista
             if (actual == inicio && actual == fin) {
-                inicio = fin = Actual = nullptr; 
+                inicio = fin = Actual = nullptr;
             }
             // Si el nodo a eliminar es el primero
             else if (actual == inicio) {
                 inicio = inicio->sig; //mover el incio
-                inicio->ant = fin; 
+                inicio->ant = fin;
                 fin->sig = inicio; // Conectar el ultimo nodo al nuevo inicio
             }
             // Si es el ultimo
             else if (actual == fin) {
                 fin = fin->ant; // Retroceder el fin
-                fin->sig = inicio; 
+                fin->sig = inicio;
                 inicio->ant = fin; // Conectar el nuevo fin con el inicio
             }
             // Si el nodo a eliminar esta en el medio
             else {
               // Conectar el nodo anterior del actual al siguiente, saltando al actual
-                actual->ant->sig = actual->sig; 
+                actual->ant->sig = actual->sig;
 
             // Conectar el nodo siguiente del actual al anterior, saltando al actual
                 actual->sig->ant = actual->ant;
@@ -112,7 +127,7 @@ void eliminarPorNombre(const string &nombre) {
 
             // Si el nodo eliminado era el nodo actual, movemos el apuntador del actual
             if (Actual == actual) {
-                Actual = actual->sig; 
+                Actual = actual->sig;
             }
 
             // Eliminar y reducir el tamaño de la lista
@@ -136,16 +151,16 @@ void buscarContacto(const string &nombre) {
     }
 
     NodoLDC *actual = inicio;
-    
+
     // Recorrer la lista
     do {
         // si el contacto actual coincide con el nombre buscado
         if (actual->dato->getNombre() == nombre) {
-            actual->dato->mostrar(); 
+            actual->dato->mostrar();
             return;
         }
-        actual = actual->sig; 
-    } while (actual != inicio); 
+        actual = actual->sig;
+    } while (actual != inicio);
 
     cout << "Contacto no encontrado" << endl;
 }
@@ -161,8 +176,25 @@ void buscarContacto(const string &nombre) {
     }
 
     // Avanzar al siguiente contacto
+    void avanzar(){
+        if( estaVacia() ){
+            cout << "La lista esta vacia" << endl;
+        }else{
+        Actual= Actual->sig;
+        }
+
+    }
+
 
     // Retroceder al contacto anterior
+    void retroceder(){
+        if( estaVacia() ){
+            cout << "La lista esta vacia" << endl;
+        }else{
+        Actual= Actual->ant;
+        }
+    }
+
 
 }; // Fin de clase ListaDobleCircularContactos
 

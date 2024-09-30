@@ -1,38 +1,15 @@
-<<<<<<< HEAD
 #include <iostream>
-#include "Contacto.cpp"
-#include "listaDobleCircularContactos.cpp"
-#include "menu.cpp"
-
-using namespace std;
-
-int main(){
-
-
-    cout<< "Sitema de contactos"<<endl;
-    //opcion agregar
-    Contacto *ptrC = new Contacto();
-    ptrC->leerContacto();
-
-    ListaDobleCircularContactos ldr;
-    ldr.insertaOrdenado( ptrC );
-
-
-    return 0;
-}
-=======
-#include <iostream>
-#include <string>
+#include <cstdlib>
 #include "Contacto.cpp"
 #include "listaDobleCircularContactos.cpp"
 
-using namespace std;
 
 int main() {
     ListaDobleCircularContactos lista;
     int opcion;
 
     do {
+        system ("cls");
         cout << "Menu:" << endl;
         cout << "1. Agregar contacto" << endl;
         cout << "2. Eliminar contacto" << endl;
@@ -47,18 +24,8 @@ int main() {
 
         switch (opcion) {
             case 1: {
-               
-                string nombre, telefono, email;
-                cout << "Ingrese el nombre: ";
-                getline(cin, nombre);
-                cout << "Ingrese el telefono: ";
-                getline(cin, telefono);
-                cout << "Ingrese el email: ";
-                getline(cin, email);
-
-                Contacto* nuevoContacto = new Contacto(nombre, telefono, email);
-                lista.insertaOrdenado(nuevoContacto);
-                cout << "Contacto agregado correctamente" << endl;
+                lista.agregarContacto();
+                system("pause");
                 break;
             }
             case 2: {
@@ -80,18 +47,21 @@ int main() {
             case 4: {
                 // Mostrar contacto actual
                 lista.mostrarActual();
+                system("pause");
                 break;
             }
             case 5: {
                 // Avanzar al siguiente contacto
-               // lista.avanzar();
+                lista.avanzar();
                 lista.mostrarActual();
+                system("pause");
                 break;
             }
             case 6: {
                 // Retroceder al contacto anterior
-               // lista.retroceder();
+                lista.retroceder();
                 lista.mostrarActual();
+                system("pause");
                 break;
             }
             case 7: {
@@ -107,4 +77,3 @@ int main() {
 
     return 0;
 }
->>>>>>> f4e879ce4d37fe04bf2f58933af5a39c95964784
